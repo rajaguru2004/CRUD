@@ -17,7 +17,7 @@ app.use("/api/products/", productroutes);
 
 mongoose
   .connect(
-    "mongodb+srv://rajaguru2004:guru2004@backeddb.dx053.mongodb.net/Node-Api?retryWrites=true&w=majority&appName=BackedDb"
+    "mongodb+srv://rajaguru2004:<password>@backeddb.dx053.mongodb.net/Node-Api?retryWrites=true&w=majority&appName=BackedDb"
   )
   .then(() => {
     console.log("connected to the data base");
