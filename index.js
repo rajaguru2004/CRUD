@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const Product = require("./models/product.model");
+const productroutes = require("./routes/product.route");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -10,14 +11,7 @@ app.get("/", (req, res, next) => {
   res.send("heloo from api");
 });
 
-app.get("/api/products", async (req, res, next) => {
-  try {
-    const product = await Product.find({});
-    res.status(200).send(product);
-  } catch (error) {
-    res.status(500).send().json({ message: error.message });
-  }
-});
+app.use("/routes", productroutes);
 
 app.get("/api/products/:id", async (req, res, next) => {
   try {
